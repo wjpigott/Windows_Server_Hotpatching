@@ -33,9 +33,9 @@ $data = @{
 
 $json = $data | ConvertTo-Json -Depth 4;
 # To create a license profile resource use PUT call
-$response = Invoke-RestMethod -Method PATCH -Uri $uri.AbsoluteUri -ContentType $contentType -Headers $header -Body $json;
+#$response = Invoke-RestMethod -Method PUT -Uri $uri.AbsoluteUri -ContentType $contentType -Headers $header -Body $json;
 
 # To update a license profile resource use PATCH call
-#$response = Invoke-RestMethod -Method PATCH -Uri $uri.AbsoluteUri -ContentType $contentType -Headers $header -Body $json;
+$response = Invoke-RestMethod -Method PATCH -Uri $uri.AbsoluteUri -ContentType $contentType -Headers $header -Body $json;
 
 $response.properties.licenseProfile
