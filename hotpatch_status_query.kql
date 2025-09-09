@@ -1,0 +1,7 @@
+
+Resources
+| where type == "microsoft.hybridcompute/machines"
+| extend hotpatchEnabled = tostring(properties.osProfile.windowsConfiguration.patchSettings.enableHotpatching)
+| extend hotpatchStatus = tostring(properties.osProfile.windowsConfiguration.patchSettings.status.hotpatchEnablementStatus)
+| project name, location, resourceGroup, hotpatchEnabled, hotpatchStatus
+| order by hotpatchEnabled descD
